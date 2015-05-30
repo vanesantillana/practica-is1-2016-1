@@ -1,7 +1,7 @@
 # README #
 
 ### Fork y clonación del proyecto ###
-* Crear un _fork_ de este repositorio hacia una cuenta personal: https://bitbucket.org/jneyra/bank
+* Crear un _fork_ de este repositorio hacia una cuenta personal: https://bitbucket.org/jneyra/bank/fork
 * Clonar el repositorio del cual hizo _fork_ en su computador.
 
 ### Importar el proyecto desde Eclipse ###
