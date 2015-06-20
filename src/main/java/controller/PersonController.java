@@ -22,7 +22,7 @@ public class PersonController {
 	@RequestMapping(value = "/person", method = RequestMethod.POST)
 	String savePerson(@ModelAttribute Person person, ModelMap model) {
 		personService.save(person);
-		return "people";
+		return showPerson(person.getId(), model);
 	}
 	@RequestMapping(value = "/add-person", method = RequestMethod.GET)
 	String addNewPerson() {
@@ -30,7 +30,7 @@ public class PersonController {
 	}
 
 	@RequestMapping(value = "/person", method = RequestMethod.GET)
-	String savePerson(@RequestParam(required = false) Long id, ModelMap model) {
+	String showPerson(@RequestParam(required = false) Long id, ModelMap model) {
 		if (id != null) {
 			Person person = personService.get(id);
 			model.addAttribute("person", person);

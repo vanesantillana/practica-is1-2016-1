@@ -27,10 +27,20 @@ public class BankController {
 		return "hello";
 	}
 
+	@RequestMapping(value = "/transfer", method = RequestMethod.GET)
+	String showTransfer(@ModelAttribute TransferForm transfer, ModelMap model) {
+		return "transfer";
+	}
+
 	@RequestMapping(value = "/account", method = RequestMethod.POST)
 	String saveAccount(@ModelAttribute Account account, ModelMap model) {
 		accountService.save(account);
 		return "hello";
+	}
+
+	@RequestMapping(value = "/add-account", method = RequestMethod.GET)
+	String addAccount(ModelMap model) {
+		return "add-account";
 	}
 	
 	@RequestMapping(value = "/register-account", method = RequestMethod.POST)

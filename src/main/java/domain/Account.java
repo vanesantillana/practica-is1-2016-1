@@ -9,11 +9,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "tbl_account", indexes = { @Index(columnList = "number") })
 public class Account implements BaseEntity<Long> {
 
 	@Id
@@ -21,7 +24,7 @@ public class Account implements BaseEntity<Long> {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_id_generator")
 	private Long id;
 
-	@Column(unique = true, nullable = false, updatable = false)
+	@Column(unique = true, nullable = false, updatable = false, length = 64)
 	private String number;
 
 	@Column(nullable = false)

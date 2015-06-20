@@ -15,6 +15,7 @@ public class JpaAccountRepository extends JpaBaseRepository<Account, Long> imple
 
 	@Override
 	public Account findByNumber(String number) {
+		//SELECT a.id, a.number, a.date FROM tbl_account a WHERE a.number = :number
 		String jpaQuery = "SELECT a FROM Account a WHERE a.number = :number";
 		TypedQuery<Account> query = entityManager.createQuery(jpaQuery, Account.class);
 		query.setParameter("number", number);
