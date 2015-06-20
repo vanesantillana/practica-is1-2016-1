@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CalcController {
 
-	@RequestMapping("@{sumar]")
+	@RequestMapping("/sumar")
 	String suma(ModelMap model, @RequestParam Integer a, @RequestParam Integer b) {
 		model.addAttribute("resultado", a + b);
 		return "calc";
