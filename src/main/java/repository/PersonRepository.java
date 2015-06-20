@@ -1,5 +1,6 @@
 package repository;
 
+import domain.Person;
 
-public interface PersonRepository {
+public interface PersonRepository extends BaseRepository<Person, Long> {
 }

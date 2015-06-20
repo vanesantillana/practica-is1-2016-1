@@ -1,7 +1,6 @@
 package repository;
 
 import java.util.Collection;
-import java.util.List;
 
 import domain.BaseEntity;
 
@@ -23,13 +22,15 @@ public interface BaseRepository<T extends BaseEntity<K>, K> {
 
 	long count();
 
-	List<T> findAll();
+	Collection<T> findAll();
 
 	T find(K id);
 
 	T find(Class<? extends T> clazz, K id);
 
-	List<T> findEntries(int firstResult, int maxResults);
+	Collection<T> findByIds(Collection<K> ids);
+
+	Collection<T> findEntries(int firstResult, int maxResults);
 
 	Class<K> getPrimaryKeyClass();
 

@@ -1,10 +1,16 @@
 package domain;
 
+import java.util.Collection;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -20,6 +26,18 @@ public class Account implements BaseEntity<Long> {
 
 	@Column(nullable = false)
 	private double balance;
+
+	@ManyToMany(mappedBy = "accounts")
+	private Collection<Person> owners;
+
+	@OneToMany(mappedBy = "sourceAccount", fetch = FetchType.LAZY)
+	private Collection<Operation> sourceOperations;
+
+	@OneToMany(mappedBy = "targetAccount")
+	private Collection<Operation> targetOperations;
+
+	@Column(nullable = false)
+	private Date created = new Date();
 
 	public Account() {
 	}
@@ -68,6 +86,22 @@ public class Account implements BaseEntity<Long> {
 	@Override
 	public String toString() {
 		return "{number: " + number + ", balance: " + balance + "}";
+	}
+
+	public Collection<Person> getOwners() {
+		return owners;
+	}
+
+	public void setOwners(Collection<Person> owners) {
+		this.owners = owners;
+	}
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
 	}
 
 }

@@ -1,5 +1,7 @@
 package repository.jpa;
 
+import java.util.Collection;
+
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -13,9 +15,17 @@ public class JpaAccountRepository extends JpaBaseRepository<Account, Long> imple
 
 	@Override
 	public Account findByNumber(String number) {
-		String jpaQuery = "SELECT a FROM Account a WHERE number = :number";
+		String jpaQuery = "SELECT a FROM Account a WHERE a.number = :number";
 		TypedQuery<Account> query = entityManager.createQuery(jpaQuery, Account.class);
 		query.setParameter("number", number);
 		return getFirstResult(query);
+	}
+
+	@Override
+	public Collection<Account> findByPersonId(Long personId) {
+		String jpaQuery = "SELECT a FROM Account a JOIN a.owners p WHERE p.id = :personId";
+		TypedQuery<Account> query = entityManager.createQuery(jpaQuery, Account.class);
+		query.setParameter("personId", personId);
+		return query.getResultList();
 	}
 }

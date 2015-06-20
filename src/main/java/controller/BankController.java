@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import service.AccountService;
 import service.TransferService;
 import domain.Account;
+import form.CreateAccountForm;
 import form.TransferForm;
 
 @Controller
@@ -31,5 +32,10 @@ public class BankController {
 		accountService.save(account);
 		return "hello";
 	}
-
+	
+	@RequestMapping(value = "/register-account", method = RequestMethod.POST)
+	String createAccount(@ModelAttribute CreateAccountForm createAccount, ModelMap model) {
+		accountService.createAccount(createAccount.getOwnerIds(), createAccount.getAccount());
+		return "hello";
+	}
 }

@@ -2,7 +2,7 @@ package repository.jpa;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -151,9 +151,20 @@ public abstract class JpaBaseRepository<T extends BaseEntity<K>, K> implements B
 	}
 
 	@Override
-	public List<T> findAll() {
+	public Collection<T> findAll() {
 		return entityManager.createQuery("SELECT o FROM " + entityClass.getSimpleName() + " o",
 				entityClass).getResultList();
+	}
+
+	@Override
+	public Collection<T> findByIds(Collection<K> ids) {
+		if (ids == null || ids.isEmpty()) {
+			return Collections.emptyList();
+		}
+		String jpaql = "SELECT o FROM " + entityClass.getSimpleName() + " o WHERE o.id IN (:ids)";
+		TypedQuery<T> query = entityManager.createQuery(jpaql, entityClass);
+		query.setParameter("ids", ids);
+		return query.getResultList();
 	}
 
 	@Override
@@ -169,7 +180,7 @@ public abstract class JpaBaseRepository<T extends BaseEntity<K>, K> implements B
 	};
 
 	@Override
-	public List<T> findEntries(int firstResult, int maxResults) {
+	public Collection<T> findEntries(int firstResult, int maxResults) {
 		return entityManager
 				.createQuery("SELECT o FROM " + entityClass.getSimpleName() + " o", entityClass)
 				.setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
@@ -182,7 +193,7 @@ public abstract class JpaBaseRepository<T extends BaseEntity<K>, K> implements B
 	 * @return
 	 */
 	protected T getFirstResult(TypedQuery<T> query) {
-		List<T> results = query.getResultList();
-		return results.isEmpty() ? null : results.get(0);
+		Collection<T> results = query.getResultList();
+		return results.isEmpty() ? null : results.iterator().next();
 	}
 }
