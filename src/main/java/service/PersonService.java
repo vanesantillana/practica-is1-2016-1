@@ -14,10 +14,14 @@ public class PersonService {
 
 	@Autowired
 	PersonRepository personRepository;
-	
+
 	@Transactional
 	public void save(Person person) {
-		personRepository.persist(person);
+		if (person.getId() == null) {
+			personRepository.persist(person);
+		} else {
+			personRepository.merge(person);
+		}
 	}
 
 	public Person get(Long id) {

@@ -24,7 +24,7 @@ public class BankController {
 	@RequestMapping(value = "/transfer", method = RequestMethod.POST)
 	String transfer(@ModelAttribute TransferForm transfer, ModelMap model) {
 		transferService.transfer(transfer.getSourceAccountNumber(), transfer.getTargetAccountNumber(), transfer.getAmount());
-		return "hello";
+		return "home";
 	}
 
 	@RequestMapping(value = "/transfer", method = RequestMethod.GET)
@@ -35,7 +35,13 @@ public class BankController {
 	@RequestMapping(value = "/account", method = RequestMethod.POST)
 	String saveAccount(@ModelAttribute Account account, ModelMap model) {
 		accountService.save(account);
-		return "hello";
+		return "account-list";
+	}
+
+	@RequestMapping(value = "/account", method = RequestMethod.GET)
+	String listAccounts(ModelMap model) {
+		model.addAttribute("accounts", accountService.getAccounts());
+		return "account-list";
 	}
 
 	@RequestMapping(value = "/add-account", method = RequestMethod.GET)
@@ -46,6 +52,11 @@ public class BankController {
 	@RequestMapping(value = "/register-account", method = RequestMethod.POST)
 	String createAccount(@ModelAttribute CreateAccountForm createAccount, ModelMap model) {
 		accountService.createAccount(createAccount.getOwnerIds(), createAccount.getAccount());
-		return "hello";
+		return "add-account";
+	}
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	String home(ModelMap model) {
+		return "home";
 	}
 }

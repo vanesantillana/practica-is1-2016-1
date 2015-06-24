@@ -21,11 +21,14 @@ public class PersonController {
 
 	@RequestMapping(value = "/person", method = RequestMethod.POST)
 	String savePerson(@ModelAttribute Person person, ModelMap model) {
+		System.out.println("savving: " + person.getId());
 		personService.save(person);
 		return showPerson(person.getId(), model);
 	}
 	@RequestMapping(value = "/add-person", method = RequestMethod.GET)
-	String addNewPerson() {
+	String addNewPerson(@RequestParam(required = false) Long id, ModelMap model) {
+		Person person = id == null ? new Person() : personService.get(id);
+		model.addAttribute("person", person);
 		return "add-person";
 	}
 

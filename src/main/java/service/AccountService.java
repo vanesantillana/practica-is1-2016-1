@@ -46,4 +46,8 @@ public class AccountService {
 		}
 		return Collections.emptyList();
 	}
+
+	public Collection<Account> getAccounts() {
+		return accountRepository.findAll();
+	}
 }
