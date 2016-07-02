@@ -27,7 +27,7 @@ public class Alumno implements BaseEntity<Long> {
 
 	private String apellidoMaterno;
 
-	
+	// uno a mucho
 	@OneToMany(mappedBy = "alumno", fetch = FetchType.LAZY)
 	private List<Matricula> origenmatricula;
 	
