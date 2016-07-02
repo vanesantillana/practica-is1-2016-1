@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Alumno</title>
+</head>
+<body>
+	<table class=>
+		<thead>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<th>ID</th>
+				<td>{{ alumno.id }}</td>
+			</tr>
+			<tr>
+				<th>Apellido Paterno</th>
+				<td>{{ alumno.apellidopaterno }}</td>
+			</tr>
+			<tr>
+				<th>Apellido Materno</th>
+				<td>{{ alumno.apellidoMaterno }}</td>
+			</tr>
+			<tr>
+				<th>Nombre</th>
+				<td>{{ alumno.nombres }}</td>
+			</tr>
+        </tbody>
+      </table>
+      <br />
+      <a href="add-alumno?alumno_id={{alumno.id}}">Modify</a> |<a href="add-alumno">Add New Person</a> | <a href="alumno">List All</a>
+</body>
+</html>

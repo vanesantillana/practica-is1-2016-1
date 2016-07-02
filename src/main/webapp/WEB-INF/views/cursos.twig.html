@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>People</title>
+</head>
+<body>
+	<table class=>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Codigo</th>
+				<th>Creditos</th>
+				<th>Nombre</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		
+		{% for curso in curso_list %}
+			<tr>
+				<td>{{ curso.id }}</td>
+				<td>{{ curso.codigo }}</td>
+				<td>{{ curso.creditos }}</td>
+				<td>{{ curso.nombre }}</td>
+				<td><a href="?curso_id={{ curso.id }}">See</a> | <a href="add-curso?curso_id={{curso.id }}">Modify</a> </td>
+			</tr>
+	{% endfor %}
+        </tbody>
+      </table>
+      <br />
+      <a href="add-curso">Add New Person</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>People</title>
+</head>
+<body>
+	<form action="curso" method="POST">
+		<table>
+			<tbody>
+				<tr>
+					<td>ID</td>
+					<td><input type="hidden" name="id" value="{{curso.id}}" />{{curso.id}}</td>
+				</tr>
+				<tr>
+					<td>Codigo</td>
+					<td><input type="text" name="codigo" value="{{curso.codigo}}" /></td>
+				</tr>
+				<tr>
+					<td>Creditos</td>
+					<td><input type="text" name="creditos" value="{{curso.creditos}}" /></td>
+				</tr>
+				
+				<tr>
+					<td>Nombre</td>
+					<td><input type="text" name="nombre" value="{{curso.nombre}}" /></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<input type="submit" value="Save" />
+		<input type="button" value="Cancel" onclick="history.back();" />
+	</form>
+</body>
+</html>

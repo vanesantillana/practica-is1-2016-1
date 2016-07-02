@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Matricula</title>
+</head>
+<body>
+	<form action="matricula" method="POST">
+		<table>
+			<tbody>
+				<tr>
+					<td>Codigo alumno</td>
+					<td><input type="text" name="alumno"/></td>
+				</tr>
+				<tr>
+					<td>Semestre</td>
+					<td><input type="text" name="semestre" value="{{matricula.semestre}}" /></td>
+				</tr>
+				<tr>
+					<td>Curso</td>
+					<td>
+						<select name="curso">
+						{% for curso in curso_list %}
+							<option value={{curso.id}} selected>{{curso.nombre}} </option>
+						{% endfor %}	
+							
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Nombres</td>
+					<td><input type="text" name="nombres" value="{{matricula.nombres}}" /></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<input type="submit" value="Save" />
+		<input type="button" value="Cancel" onclick="history.back();" />
+	</form>
+</body>
+</html>

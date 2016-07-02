@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Matriculas</title>
+</head>
+<body>
+	<table class=>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>semestre</th>
+				<th>alumno</th>
+				<th>nota</th>
+				<th>matricula</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		
+		{% for matricula in matricula_list %}
+			<tr>
+				<td>{{ matricula.id }}</td>
+				<td>{{ matricula.alumno }}</td>
+				<td>{{ matricula.curso }}</td>
+				<td>{{ matricula.semestre }}</td>
+				<td>{{ matricula.nota }}</td>
+				<td><a href="?matricula_id={{ matricula.id }}">See</a> | <a href="add-matricula?matricula_id={{matricula.id }}">Modify</a> </td>
+			</tr>
+	{% endfor %}
+        </tbody>
+      </table>
+      <br />
+      <a href="add-matricula">Add New Person</a>
+</body>
+</html>

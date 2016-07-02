@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Curso {{val}}</title>
+</head>
+<body>
+	<table class=>
+		<thead>
+		</thead>
+		{% if val==1 %}
+		<tbody>
+			<tr>
+				<th>ID</th>
+				<td>{{ curso.id }}</td>
+			</tr>
+			<tr>
+				<th>Codigo</th>
+				<td>{{ curso.codigo }}</td>
+			</tr>
+			<tr>
+				<th>Credito</th>
+				<td>{{ curso.creditos }}</td>
+			</tr>
+			<tr>
+				<th>Nombre</th>
+				<td>{{ curso.nombre }}</td>
+			</tr>
+        </tbody>
+        
+        
+      {% else %}  
+        		<tbody>
+		{% for curso in curso_list %}
+			<tr>
+				<td>{{ curso.id }}</td>
+				<td>{{ curso.codigo }}</td>
+				<td>{{ curso.creditos }}</td>
+				<td>{{ curso.nombre }}</td>
+				<td><a href="?curso_id={{ curso.id }}">See</a> | <a href="add-curso?curso_id={{curso.id }}">Modify</a> </td>
+			</tr>
+	{% endfor %}
+        </tbody>
+        
+        {% endif %}
+      </table>
+      <br />
+      <a href="add-curso?curso_id={{curso.curso_id}}">Modify</a> |<a href="add-curso">Add New Person</a> | <a href="curso">List All</a>
+</body>
+</html>

@@ -1,24 +1,52 @@
 package domain;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+@Entity
 public class Matricula implements BaseEntity<Long> {
-	private Long id;
 
-	private Curso curso;
+	@Id
+	@SequenceGenerator(name = "matricula_id_generator", sequenceName = "matricula_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "matricula_id_generator")
+	
+	private Long matricula_id;
 
-	private Alumno alumno;
-
+	
 	private Double nota;
 
 	private String semestre;
 
+	
+	
+	/*
+	 * varios  alumnos de una matricula
+	 * */
+	
+	@ManyToOne
+	private Alumno alumno;	
+
+	 /*
+	  * columna join proveedor.person_id=persona.person_id
+	  * */
+	@ManyToOne
+	private Curso curso;
+		 	 
+	 
 	@Override
 	public Long getId() {
-		return id;
+		return matricula_id;
 	}
 
 	@Override
 	public void setId(Long id) {
-		this.id = id;
+		this.matricula_id = id;
 	}
 
 	public Curso getCurso() {

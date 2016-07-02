@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>People</title>
+</head>
+<body>
+	<table class=>
+		<thead>
+			<tr>
+				<th>Codigo Alumno</th>
+				<th>Curso</th>
+				<th>Semestre</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		
+			<tr>
+					<td>Codigo alumno</td>
+					<td><input type="text" name="codigo"/></td>
+				</tr>
+			<tr>
+			<td>Elige Curso</td>
+					<td>
+						<select name="opt">
+						{% for curso in curso_list %}
+							<option value={{curso.id}} selected>{{curso.nombre}} </option>
+						{% endfor %}	
+							
+						</select>
+					</td>
+			</tr>
+
+        </tbody>
+      </table>
+      <br />
+      <a href="add-curso">Add New Person</a>
+</body>
+</html>

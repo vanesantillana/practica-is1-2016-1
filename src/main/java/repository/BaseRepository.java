@@ -3,6 +3,7 @@ package repository;
 import java.util.Collection;
 
 import domain.BaseEntity;
+import domain.Curso;
 
 public interface BaseRepository<T extends BaseEntity<K>, K> {
 
@@ -39,4 +40,6 @@ public interface BaseRepository<T extends BaseEntity<K>, K> {
 	int bulkRemoveById(Collection<K> ids);
 
 	void bulkPersist(Collection<T> entities);
+
+	
 }

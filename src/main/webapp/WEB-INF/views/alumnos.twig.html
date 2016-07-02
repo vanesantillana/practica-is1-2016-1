@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>People</title>
+</head>
+<body>
+	<table class=>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Apellid Paterno</th>
+				<th>Apellido Materno</th>
+				<th>Nombre</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		{% for alumno in alumnos_list %}
+			<tr>
+				<td>{{ alumno.id }}</td>
+				<td>{{ alumno.apellidoPaterno }}</td>
+				<td>{{ alumno.apellidoMaterno }}</td>
+				<td>{{ alumno.nombres }}</td>
+				<td><a href="?alumno_id={{ alumno.id }}">See</a> | <a href="add-alumno?alumno_id={{alumno.id }}">Modify</a> </td>
+			</tr>
+	{% endfor %}
+        </tbody>
+      </table>
+      <br />
+      <a href="add-alumno">Add New Person</a>
+</body>
+</html>

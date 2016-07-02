@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Busqueda Curso</title>
+</head>
+<body>
+	<form action="search-curso" method="POST">
+		<table>
+			<tbody>
+				<tr>
+					<td>Codigo</td>
+					<td><input type="text" name="codigo"/></td>
+				</tr>
+				<tr>
+					<td>Elige opcion</td>
+					<td>
+						<select name="opt">
+							<option value="1" selected>Por nombre</option>
+							<option value="2" selected>Por codigo</option>
+						</select>
+					</td>
+				</tr>
+				</tbody>
+		</table>
+		<br>
+		<input type="submit" value="Buscar" />
+	</form>
+</body>
+</html>

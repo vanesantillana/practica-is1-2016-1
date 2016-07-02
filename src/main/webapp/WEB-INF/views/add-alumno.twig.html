@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>People</title>
+</head>
+<body>
+	<form action="alumno" method="POST">
+		<table>
+			<tbody>
+				<tr>
+					<td>ID</td>
+					<td><input type="hidden" name="id" value="{{alumno.id}}" />{{alumno.id}}</td>
+				</tr>
+				<tr>
+					<td>Apellido Paterno</td>
+					<td><input type="text" name="apellidoPaterno" value="{{alumno.apellidoPaterno}}" /></td>
+				</tr>
+				<tr>
+					<td>Apellido Materno</td>
+					<td><input type="text" name="apellidoMaterno" value="{{alumno.apellidoMaterno}}" /></td>
+				</tr>
+				
+				<tr>
+					<td>Nombres</td>
+					<td><input type="text" name="nombres" value="{{alumno.nombres}}" /></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<input type="submit" value="Save" />
+		<input type="button" value="Cancel" onclick="history.back();" />
+	</form>
+</body>
+</html>
