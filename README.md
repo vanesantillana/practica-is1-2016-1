@@ -1,9 +1,9 @@
-# Práctica Calificada - Ingeniería de Software I - 2015-II #
+# Práctica Calificada - Ingeniería de Software I - 2016-I #
 
 ## Requisitos ##
 
 ### Fork y clonación del proyecto ###
-* Crear un _fork_ de este repositorio hacia una cuenta personal: https://bitbucket.org/hjneyra/practica-is1-2015-2/fork
+* Crear un _fork_ de este repositorio hacia una cuenta personal.
 * Clonar el repositorio del cual hizo _fork_ en su computador.
 
 ### Importar el proyecto desde Eclipse ###
@@ -14,15 +14,9 @@
 
 ### Ejecutar el proyecto ###
 
-* Pare poder ejecutar el proyecto se necesita tener instalado Apache Maven 3.x y Oracle Java 7 o superior.
+* Para poder ejecutar el proyecto se necesita tener instalado STS con Oracle Java 8 o superior.
 
-
-```
-#!bash
-
-mvn clean spring-boot:run
-```
-* El proyecto también puede ser ejecutado desde Eclipse, haciendo click derecho sobre el proyecto -> Run As... -> Java Application
+* El proyecto también puede ser ejecutado desde Eclipse o STS, haciendo click derecho sobre el proyecto -> Run As... -> Java Application
 
 ## Descripción del Problema ##
 
@@ -33,7 +27,8 @@ En los Sistemas de Información Académica se cuenta al menos con las siguientes
 * Curso
 
 ### Alumno ###
-Un alumno es una persona que puede matricularse en determinados cursos, siempre que cumpla con los prerequisitos exigidos por 
+Un alumno es una persona que se identifica con nombres, apellido paterno, apellido materno y DNI que puede matricularse en determinados cursos,
+siempre que cumpla con los prerequisitos exigidos por 
 el reglamento de la institución. Una de estas reglas es por ejemplo:
 
 * Un alumno nuevo solo puede matricularse en 20 créditos por semestre.
@@ -58,4 +53,3 @@ la nota con la que el alumno aprueba o desaprueba dicho curso.
 * Buscar un alumno por su apellido paterno.
 * Listar los alumnos matriculados en un deteminado curso y semestre con sus respectivas notas.
 * Listar la jerarquía de cursos en forma de árbol de acuerdo a los prerequisitos.
-* Hacer navegable 
